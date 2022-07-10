@@ -3,7 +3,7 @@
     <style>
         .danhmuc {
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
 
         }
         .loc li{
