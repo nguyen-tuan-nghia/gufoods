@@ -15,6 +15,7 @@ use App\Http\Controllers\permissionController;
 use App\Http\Controllers\postController;
 use App\Http\Controllers\category_postController;
 use App\Http\Controllers\employeeController;
+use App\Http\Controllers\introController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +30,12 @@ use App\Http\Controllers\employeeController;
 
 Route::get('/',[homeController::class,'index']);
 Route::get('/home/{slug}', [productController::class,'product_detail']);
+Route::get('/g/{slug}', [introController::class,'detail']);
+
 Route::get('/thuong-hieu', function(){
     return view('public/thuonghieu');
 });
-Route::get('/gioi-thieu', function(){
-    return view('public/service/gioi_thieu');
-});
+Route::get('/gioi-thieu', [homeController::class,'gioithieu']);
 Route::get('/tai-khoan', [homeController::class,'taikhoan'])->middleware('user');
 
 //cart
@@ -100,6 +101,14 @@ Route::get('/admin/logout', [adminController::class,'logout']);
 
 //admin
 Route::group(['middleware'=>'admin'], function(){
+    Route::get('/dashboard/intro/create', [introController::class,'create']);
+    Route::post('/dashboard/intro/store', [introController::class,'store']);
+    Route::get('/dashboard/intro/index', [introController::class,'index']);
+    Route::get('/dashboard/intro/edit/{id}', [introController::class,'edit']);
+    Route::post('/dashboard/intro/update/{id}', [introController::class,'update']);
+    Route::post('/dashboard/intro/delete/{id}', [introController::class,'delete']);
+
+
 Route::get('/dashboard', [adminController::class,'index']);
 Route::post('/filldata', [adminController::class,'filldata'])->middleware('statistic.index');;
 Route::post('/doughnut', [adminController::class,'doughnut'])->middleware('statistic.index');;

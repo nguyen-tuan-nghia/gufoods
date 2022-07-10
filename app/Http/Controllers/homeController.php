@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\post;
 use Illuminate\Http\Request;
 use App\Models\product;
+use App\Models\intro;
+
 class homeController extends Controller
 {
     public function index(){
@@ -35,5 +37,10 @@ class homeController extends Controller
     }
     public function taikhoan(){
         return view('public.taikhoan.info');
+    }
+    public function gioithieu()
+    {
+        $intro=intro::first();
+        return view('public.intro')->with(compact('intro'));
     }
 }

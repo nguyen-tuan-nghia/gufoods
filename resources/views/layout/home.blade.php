@@ -8324,18 +8324,9 @@
                         <h4 class="footer-title">Về GUfoods</h4>
                         <ul>
                             <li><a href="{{url('/')}}" title="Trang chủ" rel="nofollow">Trang chủ</a></li>
-                            <li><a href="{{url('/gioi-thieu')}}" title="Giới Thiệu" rel="nofollow">Giới Thiệu</a></li>
-                            {{-- <li><a href="lien-he.html" title="Liên hệ" rel="nofollow">Liên hệ</a></li> --}}
-                            {{-- <li><a href="collections/all.html" title="Sản phẩm chuẩn GU" rel="nofollow">Sản phẩm chuẩn
-                                    GU</a></li>
-                            <li><a href="cong-thuc.html" title="Công Thức Chuẩn GU" rel="nofollow">Công Thức Chuẩn
-                                    GU</a></li>
-                            <li><a href="https://forms.gle/NULVtGuoubiDtXrS9" title="Đóng góp ý kiến"
-                                    rel="nofollow">Đóng góp ý kiến</a></li>
-                            <li><a href="cung-gu-an-kieng.html" title="GU's Blog" rel="nofollow">GU's Blog</a></li>
-                            <li><a href="doi-tac-nha-gu.html" title="Cửa hàng chuẩn GU" rel="nofollow">Cửa hàng chuẩn
-                                    GU</a></li>
-                            <li><a href="tuyen-dung.html" title="Tuyển Dụng" rel="nofollow">Tuyển Dụng</a></li> --}}
+                            @foreach($intro as $key=> $val)
+                            <li><a href="{{url('g/'.$val->slug)}}" title="" rel="nofollow">{{$val->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -8444,7 +8435,9 @@
                 </svg> </button>
             <ul class="la-nav-list-items">
                 <li class="ng-scope active"> <a href="{{url('/')}}" title="Trang chủ">Trang chủ</a> </li>
-                <li class="ng-scope "> <a href="{{url('/gioi-thieu')}}" title="Giới Thiệu">Giới Thiệu</a> </li>
+                @foreach($intro as $key=> $val)
+                <li class="ng-scope "><a href="{{url('g/'.$val->slug)}}" title="" rel="nofollow">{{$val->name}}</a></li>
+                @endforeach
                 {{-- <li class="ng-scope "> <a href="lien-he.html" title="Liên hệ">Liên hệ</a> </li> --}}
                 @foreach($danh_muc as $item)
                 @if($item->category_parent==0)

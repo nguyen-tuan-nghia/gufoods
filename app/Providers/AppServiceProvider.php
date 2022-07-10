@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use App\Models\category;
 use App\Models\category_post;
+use App\Models\intro;
 use App\Models\web_detail;
 
 class AppServiceProvider extends ServiceProvider
@@ -33,7 +34,8 @@ class AppServiceProvider extends ServiceProvider
             $danh_muc=category::get();
             $web_detail=web_detail::first();
             $danh_muc_tin_tuc=category_post::get();
-            $view->with(compact('danh_muc','web_detail','danh_muc_tin_tuc'));
+            $intro=intro::get();
+            $view->with(compact('danh_muc','web_detail','danh_muc_tin_tuc','intro'));
     });
 }
 }

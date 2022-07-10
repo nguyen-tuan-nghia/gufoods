@@ -213,7 +213,20 @@
                 </div>
             </li>
             @endHas_role
-
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapstrang"
+                    aria-expanded="true" aria-controls="collapstrang">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Trang</span>
+                </a>
+                <div id="collapstrang" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ url('/dashboard/intro/create') }}">Thêm trang
+                        <a class="collapse-item" href="{{ url('/dashboard/intro/index') }}">Liệt kê trang</a>
+                    </div>
+                </div>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 

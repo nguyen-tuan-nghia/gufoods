@@ -49,7 +49,7 @@
 </div>
 <script>
     function del_category(id){
-        if(window.confirm("Bạn có chắc muốn xóa sản phẩm trên ?")){
+        if(window.confirm("Bạn có chắc muốn xóa ?")){
             $.ajax({
                 url:"{{ url('/dashboard/categoryPost/delete') }}"+'/'+id,
                 method:"GET",
